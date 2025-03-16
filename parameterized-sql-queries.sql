@@ -103,7 +103,7 @@ SELECT email, nome_utente, data_nascita, paese,
 FROM UTENTE u
 ORDER BY nome_utente;
 
--- 11. Aggiungere o rimuovere brani
+-- 11. Aggiungere un brano
 -- Aggiungere un brano
 INSERT INTO BRANO (ID_brano, titolo, testo, durata, data_uscita, Tra_ID_artista, Tra_titolo)
 VALUES (?, ?, ?, ?, ?, ?, ?);
@@ -124,16 +124,6 @@ VALUES (?, ?);
 -- Esempio: aggiungere una versione del brano
 INSERT INTO VERSIONE_BRANO (ID_brano, Tipo, dimensione, sorgente)
 VALUES (?, ?, ?, ?);
-
--- Rimuovere un brano (prima rimuovere le relazioni)
-DELETE FROM ascolto WHERE ID_brano = ?;
-DELETE FROM classificazione WHERE ID_brano = ?;
-DELETE FROM cogliere WHERE ID_brano = ?;
-DELETE FROM composizione WHERE ID_brano = ?;
-DELETE FROM esecuzione WHERE ID_brano = ?;
-DELETE FROM scrittura WHERE ID_brano = ?;
-DELETE FROM VERSIONE_BRANO WHERE ID_brano = ?;
-DELETE FROM BRANO WHERE ID_brano = ?;
 
 -- 12. Aggiungere o rimuovere album
 -- Aggiungere un album
