@@ -13,9 +13,6 @@
             <nav class="mt-3">
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="search.php">Search</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="library.php">Library</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="profile.php">Profile</a></li>
                 </ul>
             </nav>
         </div>

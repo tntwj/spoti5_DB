@@ -1,5 +1,5 @@
 <section class="container d-flex flex-column align-items-center my-5">
-    <h1>Sign in to CrabStore</h1>
+    <h1>Sign in to SpotiFive</h1>
     <form action="login-handler.php" method="post">
         <div class="my-3">
             <label for="email">Email:</label>
