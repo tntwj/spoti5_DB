@@ -22,7 +22,13 @@ class DataBaseHelper {
         return $result->fetch_assoc();
     }
 
-// Registrazione come utente free
+    public function loginUser($email, $password) {
+        $stmt = $this->db->prepare("SELECT email FROM UTENTE WHERE email = ? AND password = ?");
+        $stmt->bind_param("ss", $email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
 
 }
 
