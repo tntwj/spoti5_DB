@@ -3,12 +3,8 @@
     <form action="register-handler.php" method="post">
         <div class="row my-3">
             <div class="col">
-                <label for="firstname">First Name:</label>
-                <input type="text" class="form-control" placeholder="First Name" id="firstname" name="firstName" required />
-            </div>
-            <div class="col">
-                <label for="lastname">Last Name:</label>
-                <input type="text" class="form-control" placeholder="Last Name" id="lastname" name="lastName" required />
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" placeholder="Username" id="username" name="username" required />
             </div>
         </div>
         <div class="mb-3">
