@@ -10,7 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($username) && !empty($password) && !empty($email)) {
     $result = $dbh->registerUser($email, $username, $password, $birthdate, $nationality);
         if ($result) {
-            header("Location: success.php");
+            $_SESSION[SessionKey::LOGGED_IN] = true;
+            $_SESSION[SessionKey::EMAIL] = $email;
+            header("Location: user-index.php");
             exit();
         } else {
             echo "Registration failed. Please try again.";
