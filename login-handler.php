@@ -9,6 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($check) {
         // Login successful
         echo "Login successful!";
+        $_SESSION[SessionKey::LOGGED_IN] = true;
+        $_SESSION[SessionKey::EMAIL] = $email;
         header("Location: user-index.php");
     } else {
         // Login failed
