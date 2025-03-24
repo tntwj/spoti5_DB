@@ -30,6 +30,21 @@ class DataBaseHelper {
         return $result->fetch_assoc();
     }
 
+    public function getSongs() {
+        $stmt = $this->db->prepare("SELECT * FROM BRANO"); 
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function createPlaylist($email) {
+        $stmt = $this->db->prepare("INSERT INTO PLAYLIST (ID_playlist, titolo, descrizione, Tipo, email) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
 }
 
 
