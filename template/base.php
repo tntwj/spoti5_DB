@@ -12,7 +12,9 @@
             <h1 class="mb-0">SpotiFive</h1>
             <nav class="mt-3">
                 <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="<?php echo isUserLoggedIn() ? 'user-index.php' : 'index.php'; ?>">Home</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link text-white" href="songs.php">All Songs</a></li>
                 </ul>
             </nav>
