@@ -45,6 +45,14 @@ class DataBaseHelper {
         return $result->fetch_assoc();
     }
 
+    public function getUserPlaylists($email) {
+        $stmt = $this->db->prepare("SELECT * FROM PLAYLIST WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 
 
