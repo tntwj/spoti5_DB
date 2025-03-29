@@ -1,10 +1,11 @@
-<?php $songs = $templateParams["playlist-songs"]; ?>
+<?php $songs = $templateParams["playlist-songs"] ?? []; ?>
 <?php foreach ($songs as $song): ?>
     <p>
-        Title: <?php echo htmlspecialchars($song["titolo"]); ?><br>
+        Title: <?php echo htmlspecialchars($song["titolo"] ?? "Unknown Title"); ?><br>
         Duration: <?php 
-            $minutes = floor($song["durata"] / 60);
-            $seconds = $song["durata"] % 60;
+            $duration = $song["durata"] ?? 0;
+            $minutes = floor($duration / 60);
+            $seconds = $duration % 60;
             echo sprintf("%d:%02d", $minutes, $seconds); 
         ?>
     </p>

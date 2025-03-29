@@ -54,8 +54,8 @@ class DataBaseHelper {
     }
 
     public function getPlaylistSongs($id_playlist) {
-        $stmt = $this->db->prepare("SELECT * FROM brano, cogliere, playlist WHERE brano.ID_brano = cogliere.ID_brano AND cogliere.ID_playlist = playlist.ID_playlist AND playlist.ID_playlist = ?");
-        $stmt->bind_param("ss", $id_playlist);
+        $stmt = $this->db->prepare("SELECT brano.titolo, brano.durata FROM brano, cogliere, playlist WHERE brano.ID_brano = cogliere.ID_brano AND cogliere.ID_playlist = playlist.ID_playlist AND playlist.ID_playlist = ?");
+        $stmt->bind_param("s", $id_playlist);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
