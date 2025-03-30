@@ -84,7 +84,7 @@ class DataBaseHelper {
             SELECT tempo_attivazione, 'PREMIUM' AS subscription_type 
             FROM PREMIUM 
             WHERE email = ?
-            ORDER BY tempo_attivazione ASC
+            ORDER BY tempo_attivazione DESC
             LIMIT 1
         ");
         $stmt->bind_param("ss", $email, $email);
