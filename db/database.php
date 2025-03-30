@@ -12,14 +12,13 @@ class DataBaseHelper {
     public function registerUser($email, $nome_utente, $password, $data_nascita, $paese) {
         $stmt = $this->db->prepare("INSERT INTO UTENTE (email, nome_utente, password, data_nascita, paese) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $email, $nome_utente, $password, $data_nascita, $paese);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $stmt = $this->db->prepare("INSERT INTO FREE (email, tempo_attivazione) VALUES (?, NOW())");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        
-        return $result->fetch_assoc();
+        if ($stmt->execute()) { // Check if the first insert was successful
+            $stmt = $this->db->prepare("INSERT INTO FREE (email, tempo_attivazione) VALUES (?, NOW())");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            return true; // Return true if both inserts succeed
+        }
+        return false; // Return false if the first insert fails
     }
 
     public function loginUser($email, $password) {
