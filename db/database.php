@@ -10,6 +10,7 @@ class DataBaseHelper {
     }
     // Registrazione di un nuovo utente
     public function registerUser($email, $nome_utente, $password, $data_nascita, $paese) {
+        $data_nascita = date('Y-m-d', strtotime($data_nascita)); // Ensure the date is in 'Y-m-d' format
         $stmt = $this->db->prepare("INSERT INTO UTENTE (email, nome_utente, password, data_nascita, paese) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("sssss", $email, $nome_utente, $password, $data_nascita, $paese);
         if ($stmt->execute()) { // Check if the first insert was successful
