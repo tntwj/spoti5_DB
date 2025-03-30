@@ -14,7 +14,7 @@
 
     <h3>Select Songs to Add:</h3>
         <?php foreach($templateParams["songs"] as $song) : ?>
-            <input type="radio" id="song-<?php echo $song['ID_brano']; ?>" name="selected_song" value="<?php echo $song['ID_brano']; ?>">
+            <input type="checkbox" id="song-<?php echo $song['ID_brano']; ?>" name="selected_songs[]" value="<?php echo $song['ID_brano']; ?>">
             <label for="song-<?php echo $song['ID_brano']; ?>"><?php echo htmlspecialchars($song['titolo']); ?></label><br>
         <?php endforeach; ?>
     <br>

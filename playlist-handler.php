@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     } else {
         die("Failed to create the playlist.");
     }
-
+    // Redirect to user-index.php after successful creation
+    header("Location: user-index.php");
+    exit();
 }
 ?>
