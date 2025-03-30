@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     if (empty($titolo) || empty($descrizione) || empty($tipo) || empty($selected_song)) {
         die("All fields are required.");
     }
-    
+
     $email = $_SESSION[Sessionkey::EMAIL] ?? null;
 
     if (empty($email)) {
@@ -21,22 +21,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
 
     // Create playlist using dbh->createPlaylist
     $playlist_id = $dbh->createPlaylist($titolo, $descrizione, $tipo, $email);
-
+    // Insert the selected songs into the playlist
     if ($playlist_id) {
-        // Associate the selected song with the playlist
-        $query = "INSERT INTO playlist_songs (playlist_id, song_id) VALUES (?, ?)";
-        $stmt = $db->prepare($query);
-        $stmt->bind_param("ii", $playlist_id, $selected_song);
-
-        if ($stmt->execute()) {
-            echo "Playlist created successfully!";
+        $selected_songs = filter_input(INPUT_POST, 'selected_songs', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+        if (!empty($selected_songs)) {
+            foreach ($selected_songs as $song_id) {
+                $song_id = filter_var($song_id, FILTER_SANITIZE_NUMBER_INT);
+                $success = $dbh->insertSongIntoPlaylist($playlist_id, $song_id);
+                if (!$success) {
+                    die("Failed to add the song with ID $song_id to the playlist.");
+                }
+            }
         } else {
-            echo "Error associating song with playlist.";
+            die("No songs selected.");
         }
-
-        $stmt->close();
     } else {
-        echo "Error creating playlist.";
+        die("Failed to create the playlist.");
     }
+
 }
 ?>
