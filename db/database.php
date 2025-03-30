@@ -46,10 +46,9 @@ class DataBaseHelper {
     }
 
     public function insertSongIntoPlaylist($id_playlist, $brano) {
-        $stmt = $this->db->prepare("INSERT INTO COGLIERE (ID_playlist, ID_brano) VALUES (?, ?)");
-        $stmt->bind_param("ss", $id_playlist, $brano);
-        $stmt->execute();
-        return $id_playlist;
+        $stmt = $this->db->prepare("INSERT INTO COGLIERE (ID_brano, ID_playlist) VALUES (?, ?)");
+        $stmt->bind_param("ss", $brano, $id_playlist);
+        return $stmt->execute();
     }
 
     public function getUserPlaylists($email) {

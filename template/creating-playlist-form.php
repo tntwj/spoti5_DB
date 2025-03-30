@@ -1,5 +1,5 @@
 <h1>Create a New Playlist</h1>
-<form action="process-playlist.php" method="POST">
+<form action="playlist-handler.php" method="POST">
     <label for="titolo">Title:</label>
     <input type="text" id="titolo" name="titolo" required><br><br>
 
