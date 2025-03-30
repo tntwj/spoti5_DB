@@ -2,7 +2,7 @@
     <?php foreach($templateParams["categories"] as $category): ?>
         <div class="category">
             <h2><?php echo htmlspecialchars($category["nome"]); ?></h2>
-            <a href="songs.php?ID_categoria=<?php echo urlencode($category['ID_categoria']); ?>" class="btn">View Songs</a>
+            <a href="options.php?ID_categoria=<?php echo $category['ID_categoria']; ?>" class="btn">View Songs</a>
         </div>
     <?php endforeach; ?>
 </div>

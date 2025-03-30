@@ -106,7 +106,7 @@ class DataBaseHelper {
     }
 
     public function getCategoryOptions($id_categoria) {
-        $stmt = $this->db->prepare("SELECT * FROM OPZIONE WHERE ID_categoria = ?");
+        $stmt = $this->db->prepare("SELECT * FROM opzione_categoria WHERE ID_categoria = ?");
         $stmt->bind_param("s", $id_categoria);
         $stmt->execute();
         $result = $stmt->get_result();
