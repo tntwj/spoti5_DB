@@ -97,6 +97,21 @@ class DataBaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_assoc(); // Returns tempo_attivazione and subscription_type
     }
+
+    public function getAllCategories() {
+        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCategoryOptions($id_categoria) {
+        $stmt = $this->db->prepare("SELECT * FROM OPZIONE WHERE ID_categoria = ?");
+        $stmt->bind_param("s", $id_categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 
