@@ -24,7 +24,7 @@
         <div class="row my-3">
         <div class="col">
             <label for="birthdate">Date of Birth:</label>
-            <input type="date" class="form-control" id="birthdate" name="birthDate" required />
+            <input type="date" class="form-control" id="birthdate" name="birthdate" required />
         </div>
         <div class="col">
             <label for="nationality">Nationality:</label>
