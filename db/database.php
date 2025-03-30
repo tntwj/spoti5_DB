@@ -66,6 +66,32 @@ class DataBaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function buyPremium($email) {
+        $data_scadenza = date('Y-m-d', strtotime('+1 month')); // Calculate the date of next month
+        $prezzo = 10; // Fixed price
+        $stmt = $this->db->prepare("INSERT INTO PREMIUM (email, tempo_attivazione, data_scadenza, Prezzo) VALUES (?, NOW(), ?, ?)");
+        $stmt->bind_param("ssd", $email, $data_scadenza, $prezzo);
+        return $stmt->execute();
+    }
+
+    public function getNearestTempoAttivazione($email) {
+        $stmt = $this->db->prepare("
+            SELECT tempo_attivazione, 'FREE' AS subscription_type 
+            FROM FREE 
+            WHERE email = ?
+            UNION ALL
+            SELECT tempo_attivazione, 'PREMIUM' AS subscription_type 
+            FROM PREMIUM 
+            WHERE email = ?
+            ORDER BY tempo_attivazione ASC
+            LIMIT 1
+        ");
+        $stmt->bind_param("ss", $email, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); // Returns tempo_attivazione and subscription_type
+    }
 }
 
 

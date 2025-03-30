@@ -16,6 +16,9 @@
                         <a class="nav-link text-white" href="<?php echo isUserLoggedIn() ? 'user-index.php' : 'index.php'; ?>">Home</a>
                     </li>
                     <li class="nav-item"><a class="nav-link text-white" href="songs.php">All Songs</a></li>
+                    <?php if (isUserLoggedIn()): ?>
+                        <li class="nav-item"><a class="nav-link text-white" href="profile.php">Profile</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </div>
