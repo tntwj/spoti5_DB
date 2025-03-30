@@ -37,12 +37,19 @@ class DataBaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createPlaylist($email) {
+    public function createPlaylist($titolo, $descrizione, $tipo, $email) {
+        $ID_playlist = uniqid() . time(); // Generate a unique ID using uniqid and current time
         $stmt = $this->db->prepare("INSERT INTO PLAYLIST (ID_playlist, titolo, descrizione, Tipo, email) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("sssss", $ID_playlist, $titolo, $descrizione, $tipo, $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_assoc();
+        return $ID_playlist; // Return the generated ID for reference
+    }
+
+    public function insertSongIntoPlaylist($id_playlist, $brano) {
+        $stmt = $this->db->prepare("INSERT INTO COGLIERE (ID_playlist, ID_brano) VALUES (?, ?)");
+        $stmt->bind_param("ss", $id_playlist, $brano);
+        $stmt->execute();
+        return $id_playlist;
     }
 
     public function getUserPlaylists($email) {
