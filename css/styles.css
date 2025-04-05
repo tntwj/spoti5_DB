@@ -1,20 +1,56 @@
-/* General styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+/* Bootstrap will handle most styling needs */
+/* This minimal CSS provides only essential custom styling */
 
 /* Main section styles */
 main {
-    background-color: #1a1a1a; /* Dark close to black */
-    color: white; /* Text in main are white */
+    background-color: #1a1a1a; /* Dark background */
+    color: white; /* Light text */
     padding: 20px;
+    min-height: 80vh; /* Ensure minimum height */
 }
 
 /* Navigation and header styles */
 nav, header {
-    color: black; /* Text black */
-    background-color: green; /* Background color green */
+    background-color: #1DB954; /* Spotify green */
     padding: 10px;
     text-align: center;
+}
+
+/* Logo styling */
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Link styling */
+a {
+    color: #1DB954; /* Spotify green */
+}
+
+a:hover {
+    color: #1ed760; /* Lighter green on hover */
+    text-decoration: none;
+}
+
+/* Button overrides */
+.btn-primary {
+    background-color: #1DB954;
+    border-color: #1DB954;
+}
+
+.btn-primary:hover {
+    background-color: #1ed760;
+    border-color: #1ed760;
+}
+
+/* Card styling */
+.card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: #282828;
+    color: white;
 }
