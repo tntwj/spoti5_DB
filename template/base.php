@@ -9,7 +9,7 @@
 <body>
     <header class="bg-primary text-white py-3">
         <div class="container">
-            <h1 class="mb-0">SpotiFive</h1>
+            <h1 class="mb-0">Spoti5</h1>
             <nav class="mt-3">
                 <ul class="nav nav-pills">
                     <li class="nav-item">

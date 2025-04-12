@@ -12,6 +12,6 @@
         <a href="create-playlist.php" class="btn">Create New Playlist</a>
     </div>
     <div class="button-container">
-        <a href="index.php" class="btn">Logout</a>
+        <a href="logout.php" class="btn" onclick="logout()">Logout</a>
     </div>
 </div>
