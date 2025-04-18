@@ -119,7 +119,7 @@ INSERT INTO FREE (email, tempo_attivazione) VALUES
 
 -- Populate PREMIUM table
 INSERT INTO PREMIUM (email, tempo_attivazione, data_scadenza, Prezzo) VALUES
-('user1@example.com', '2023-03-10 10:15:00', '2024-03-10', 9.99),
+('user1@example.com', '2025-05-10 10:15:00', '2025-07-10', 9.99),
 ('user2@example.com', '2023-05-05 16:20:00', '2024-05-05', 9.99),
 ('user4@example.com', '2023-07-20 12:00:00', '2024-07-20', 14.99);
 
