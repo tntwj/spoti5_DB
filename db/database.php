@@ -143,6 +143,14 @@ class DataBaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getArtistAlbums($id_artista) {
+        $stmt = $this->db->prepare("SELECT titolo, descrizione FROM ALBUM WHERE ID_artista = ?");
+        $stmt->bind_param("s", $id_artista);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     // 6. Creare un Daily Mix personalizzato in base alla percentuale di ascolti dell'utente per genere musicale
     public function createDailyMix($email) {
         $stmt = $this->db->prepare("
