@@ -233,6 +233,7 @@ INSERT INTO proiettare (ID_pubblicita, email, data_proiezione) VALUES
 ('PUB001', 'user2@example.com', '2023-05-01 10:00:00'),
 ('PUB002', 'user5@example.com', '2023-06-10 16:45:00'),
 ('PUB002', 'user1@example.com', '2023-05-05 13:20:00'),
+('PUB002', 'user1@example.com', '2023-05-05 14:20:00'),
 ('PUB004', 'user5@example.com', '2023-06-15 19:30:00');
 
 -- scrittura relation
