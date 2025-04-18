@@ -16,12 +16,13 @@ $templateParams["options"] = array_map(function($category) use ($dbh) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id_brano = $_POST["id_brano"] ?? "";
-    $id_categoria = $_POST["id_categoria"] ?? "";
-    $opzione = $_POST["opzione"] ?? "";
-    
-    if (!empty($id_brano) && !empty($id_categoria) && !empty($opzione)) {
-        $result = $dbh->addTrackToCategory($id_brano, $id_categoria, $opzione);
-        $templateParams["message"] = $result ? "Track added to category successfully!" : "Failed to add track to category.";
+    $id_categoria_opzione = $_POST["id_categoria_opzione"] ?? "";
+
+    if (!empty($id_brano) && !empty($id_categoria_opzione)) {
+        list($id_categoria, $opzione) = explode("|", $id_categoria_opzione, 2);
+        $lastWord = substr(strrchr(trim($opzione), ' '), 1);
+        $result = $dbh->addTrackToCategory($id_brano, $id_categoria, $lastWord);
+        $templateParams["message"] = $result ? " Track added to category successfully!" : " Failed to add track to category.";
     } else {
         $templateParams["message"] = "Please fill all fields.";
     }
