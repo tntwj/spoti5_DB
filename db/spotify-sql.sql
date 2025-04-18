@@ -165,9 +165,8 @@ CREATE TABLE esecuzione (
 CREATE TABLE proiettare (
      ID_pubblicita VARCHAR(50) NOT NULL,
      email VARCHAR(100) NOT NULL,
-     n_proiezione INT NOT NULL,
      data_proiezione DATETIME NOT NULL,
-     CONSTRAINT ID_proiettare_ID PRIMARY KEY (email, ID_pubblicita)
+     CONSTRAINT ID_proiettare_ID PRIMARY KEY (email, ID_pubblicita, data_proiezione)
 );
 
 CREATE TABLE scrittura (

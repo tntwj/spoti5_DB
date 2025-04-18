@@ -224,16 +224,16 @@ INSERT INTO esecuzione (ID_artista, ID_brano) VALUES
 ('ART005', 'BRN009');
 
 -- proiettare relation
-INSERT INTO proiettare (ID_pubblicita, email, n_proiezione, data_proiezione) VALUES
-('PUB001', 'user3@example.com', 3, '2023-04-15 09:30:00'),
-('PUB002', 'user3@example.com', 1, '2023-04-10 14:20:00'),
-('PUB003', 'user3@example.com', 1, '2023-03-25 18:45:00'),
-('PUB003', 'user4@example.com', 5, '2023-07-15 11:30:00'),  -- This one is after user4's premium activation
-('PUB001', 'user5@example.com', 1, '2023-06-05 08:15:00'),
-('PUB001', 'user2@example.com', 1, '2023-05-01 10:00:00'),  -- This one is before user2's premium activation
-('PUB002', 'user5@example.com', 1, '2023-06-10 16:45:00'),
-('PUB002', 'user1@example.com', 3, '2023-05-05 13:20:00'),  -- This one is before user1's premium activation
-('PUB004', 'user5@example.com', 1, '2023-06-15 19:30:00');
+INSERT INTO proiettare (ID_pubblicita, email, data_proiezione) VALUES
+('PUB001', 'user3@example.com', '2023-04-15 09:30:00'),
+('PUB002', 'user3@example.com', '2023-04-10 14:20:00'),
+('PUB003', 'user3@example.com', '2023-03-25 18:45:00'),
+('PUB003', 'user4@example.com', '2023-07-15 11:30:00'),
+('PUB001', 'user5@example.com', '2023-06-05 08:15:00'),
+('PUB001', 'user2@example.com', '2023-05-01 10:00:00'),
+('PUB002', 'user5@example.com', '2023-06-10 16:45:00'),
+('PUB002', 'user1@example.com', '2023-05-05 13:20:00'),
+('PUB004', 'user5@example.com', '2023-06-15 19:30:00');
 
 -- scrittura relation
 INSERT INTO scrittura (ID_brano, ID_paroliere) VALUES
