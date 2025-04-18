@@ -228,8 +228,11 @@ INSERT INTO proiettare (ID_pubblicita, email, n_proiezione) VALUES
 ('PUB001', 'user3@example.com', 3),
 ('PUB002', 'user3@example.com', 1),
 ('PUB003', 'user3@example.com', 1),
+('PUB003', 'user4@example.com', 5),
 ('PUB001', 'user5@example.com', 1),
+('PUB001', 'user2@example.com', 1),
 ('PUB002', 'user5@example.com', 1),
+('PUB002', 'user1@example.com', 3),
 ('PUB004', 'user5@example.com', 1);
 
 -- scrittura relation
