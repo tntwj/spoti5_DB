@@ -25,11 +25,7 @@
                             <td><?php echo $user["nome_utente"]; ?></td>
                             <td><?php echo $user["data_nascita"]; ?></td>
                             <td><?php echo $user["paese"]; ?></td>
-                            <td>
-                                <span class="badge <?php echo ($user["tipo_account"] == 'Premium') ? 'badge-success' : 'badge-secondary'; ?>">
-                                    <?php echo $user["tipo_account"]; ?>
-                                </span>
-                            </td>
+                            <td><?php echo $user["tipo_account"]; ?></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
