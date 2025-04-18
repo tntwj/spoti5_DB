@@ -19,50 +19,19 @@
         </div>
         
         <div class="form-group">
-            <label for="id_categoria">Select Category:</label>
-            <select class="form-control" id="id_categoria" name="id_categoria" required>
-                <option value="">-- Select a category --</option>
-                <?php foreach($templateParams["categories"] as $category): ?>
-                <option value="<?php echo $category["ID_categoria"]; ?>"><?php echo $category["nome"]; ?></option>
+            <label for="id_categoria_opzione">Select Category and Option:</label>
+            <select class="form-control" id="id_categoria_opzione" name="id_categoria_opzione" required>
+            <option value="">-- Select a category and option --</option>
+            <?php foreach($templateParams["options"] as $categoryOption): ?>
+                <?php foreach($categoryOption["options"] as $option): ?>
+                <option value="<?php echo $categoryOption["id"] . "|" . $option; ?>">
+                    <?php echo $option; ?>
+                </option>
                 <?php endforeach; ?>
+            <?php endforeach; ?>
             </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="opzione">Category Option:</label>
-            <input type="text" class="form-control" id="opzione" name="opzione" required>
-            <small class="form-text text-muted">Enter the option for the selected category</small>
         </div>
         
         <button type="submit" class="btn btn-primary">Add to Category</button>
     </form>
 </div>
-
-<script>
-$(document).ready(function() {
-    // When category changes, load options for that category
-    $("#id_categoria").change(function() {
-        const categoryId = $(this).val();
-        if (categoryId) {
-            $.ajax({
-                url: "get-category-options.php",
-                method: "POST",
-                data: { id_categoria: categoryId },
-                dataType: "json",
-                success: function(data) {
-                    // Create datalist for options
-                    let optionsList = "<datalist id='category-options'>";
-                    data.forEach(function(option) {
-                        optionsList += "<option value='" + option.opzione + "'>";
-                    });
-                    optionsList += "</datalist>";
-                    
-                    // Add datalist to the page and connect it to the input
-                    $("#opzione").after(optionsList);
-                    $("#opzione").attr("list", "category-options");
-                }
-            });
-        }
-    });
-});
-</script>
