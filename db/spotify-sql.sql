@@ -339,7 +339,7 @@ CREATE UNIQUE INDEX ID_PREMIUM_IND
      ON PREMIUM (email, tempo_attivazione);
 
 CREATE UNIQUE INDEX ID_proiettare_IND
-     ON proiettare (email, ID_pubblicita);
+     ON proiettare (email, ID_pubblicita, data_proiezione);
 
 CREATE INDEX REF_proie_PUBBL_IND
      ON proiettare (ID_pubblicita);
