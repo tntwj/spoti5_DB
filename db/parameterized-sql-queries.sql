@@ -82,7 +82,7 @@ FROM (
     FROM 
         PREMIUM p
     LEFT JOIN 
-        proiettare pr ON p.email = pr.email AND pr.n_proiezione < p.tempo_attivazione
+        proiettare pr ON p.email = pr.email AND pr.data_proiezione < p.tempo_attivazione
     GROUP BY 
         p.email
 ) AS conteggio_pubblicita;
